@@ -1,1 +1,1 @@
-# aghalya-n.github.io-covid-story
+# aghalya-n.github.io
