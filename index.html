@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>COVID-19 Global Narrative</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  
+  <div id="controls">
+    <button id="prev">← Previous</button>
+    <span id="scene-title"></span>
+    <button id="next">Next →</button>
+  </div>
+
+  <div id="viz">
+    <svg id="chart"></svg>
+    <div id="annotation"></div>
+  </div>
+
+  <div id="explore-controls" class="hidden">
+    <label for="date-slider">Date: </label>
+    <input type="range" id="date-slider" min="0" max="0" value="0">
+    <span id="slider-value"></span>
+  </div>
+
+  <script src="js/d3.v7.min.js"></script>
+  <script src="js/d3-annotation.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
