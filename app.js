@@ -8,9 +8,9 @@ const params = {
 
 const scenes = [scene1, scene2, scene3];
 
-d3.csv("data/time_series_covid19_confirmed_global.csv").then(raw => {
+d3.csv("time_series_covid19_confirmed_global.csv").then(raw => {
   params.dates = raw.columns.slice(4);
-  arams.globalTotals = params.dates.map(date => ({
+  params.globalTotals = params.dates.map(date => ({
     date,
     total: d3.sum(raw, d => +d[date])
   }));
@@ -56,7 +56,7 @@ function updateScene() {
   scenes[params.scene]();
 }
 
-unction scene1() {
+function scene1() {
   const svg = d3.select("#chart").attr("width", 800).attr("height", 400);
   const data = params.globalTotals;
   const margin = {top:40, right:20, bottom:40, left:60};
