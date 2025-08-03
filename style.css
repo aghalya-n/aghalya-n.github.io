@@ -1,6 +1,6 @@
 /* color vars */
 :root {
-  --color-dark-green: #003e26;
+  --color-dark-green: #052c14;
   --color-light-pink: #f8ccd4;
   --color-text: #f8ccd4;
   --color-tooltip-bg: rgba(248, 204, 212, 0.95);
@@ -42,7 +42,7 @@ button {
 }
 
 button:hover {
-  background-color: var(--color-dark-green);
+  background-color: rgba(255,255,255,0.15);
   color: var(--color-light-pink);
   border-color: var(--color-light-pink);
 }
