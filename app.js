@@ -59,7 +59,7 @@ function updateScene() {
 function scene1() {
   const svg = d3.select("#chart").attr("width", 800).attr("height", 400);
   const data = params.globalTotals;
-  const margin = {top:40, right:20, bottom:40, left:60};
+  const margin = {top:80, right:20, bottom:40, left:140};
   const w = +svg.attr("width") - margin.left - margin.right;
   const h = +svg.attr("height") - margin.top - margin.bottom;
 
@@ -127,27 +127,24 @@ function scene2() {
   g.append("g").call(d3.axisLeft(y));
   g.append("g").attr("transform", `translate(0,${h})`).call(d3.axisBottom(x).ticks(5).tickFormat(d3.format(".2s")));
 
-  g.selectAll("rect")
-    .data(data)
-    .join("rect")
-      .attr("y", d => y(d.country))
-      .attr("height", y.bandwidth())
-      .attr("x", 0)
-      .attr("width", d => x(d.value))
-      .attr("fill", "#3182bd");
+  const tooltip = d3.select("body").append("div").attr("class","tooltip hidden");
 
-  const top = data[0];
-  const ann = [{
-    note: {
-      title: top.country,
-      label: `${d3.format(",")(top.value)} cases`,
-      wrap: 80
-    },
-    x: x(top.value),
-    y: y(top.country) + y.bandwidth()/2,
-    dx: -100,
-    dy: -20
-  }];
+  g.selectAll("rect").data(data).join("rect")
+    .attr("y", d => y(d.country))
+    .attr("height", y.bandwidth())
+    .attr("x", 0)
+    .attr("width", d => x(d.value))
+    .attr("fill", "#3182bd")
+    .on("mouseover", (event, d) => {
+      tooltip
+        .html(`<strong>${d.country}</strong><br/>${d3.format(",")(d.value)} cases`)
+        .style("left", `${event.pageX + 5}px`)
+        .style("top",  `${event.pageY - 28}px`)
+        .classed("hidden", false);
+    })
+    .on("mouseout", () => {
+      tooltip.classed("hidden", true);
+    });
 
   const makeAnn = d3.annotation().type(d3.annotationCallout).annotations(ann);
 
