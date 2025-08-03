@@ -6,7 +6,16 @@ const params = {
   byCountry: []
 };
 
+const subtitles = [
+  "This line graph shows the cumulative global confirmed cases over time. Hover any point for exact date & count.",
+  "This horizontal bar graph shows the top 10 countries by total confirmed cases (latest). Hover bars for exact counts.",
+  "For this graph, slide to choose a date, then hover bars for details."
+];
+
 const scenes = [scene1, scene2, scene3];
+
+const chartw = 1000;
+const charth = 600;
 
 d3.csv("time_series_covid19_confirmed_global.csv").then(raw => {
   params.dates = raw.columns.slice(4);
@@ -48,6 +57,7 @@ function updateScene() {
     "Explore by Date"
   ];
   d3.select("#scene-title").text(titles[params.scene]);
+  d3.select("#subtitle").text(subtitles[params.scene]);
 
   d3.select("#explore-controls").classed("hidden", params.scene !== 2);
   d3.select("#chart").selectAll("*").remove();
@@ -57,11 +67,11 @@ function updateScene() {
 }
 
 function scene1() {
-  const svg = d3.select("#chart").attr("width", 800).attr("height", 400);
+  const svg = d3.select("#chart").attr("width", chartw).attr("height", charth);
   const data = params.globalTotals;
   const margin = {top:80, right:20, bottom:40, left:140};
-  const w = +svg.attr("width") - margin.left - margin.right;
-  const h = +svg.attr("height") - margin.top - margin.bottom;
+  const w = chartw - margin.left - margin.right;
+  const h = charth - margin.top - margin.bottom;
 
   const x = d3.scaleTime().domain(d3.extent(data, d => new Date(d.date))).range([0, w]);
   const y = d3.scaleLinear().domain([0, d3.max(data, d => d.total)]).nice().range([h, 0]);
@@ -79,6 +89,27 @@ function scene1() {
     .attr("stroke","#e6550d")
     .attr("stroke-width",2)
     .attr("d", line);
+
+  const tooltip = d3.select("body").append("div").attr("class","tooltip hidden");
+
+  g.selectAll("circle").data(data).join("circle")
+      .attr("cx", d => x(new Date(d.date)))
+      .attr("cy", d => y(d.total))
+      .attr("r", 4)
+      .attr("fill", "#e6550d")
+      .on("mouseover", (event,d) => {
+        tooltip
+          .html(
+            `<strong>${d3.timeFormat("%b %d, %Y")(new Date(d.date))}</strong><br>` +
+            `${d3.format(",")(d.total)} cases`
+          )
+          .style("left",  (event.pageX + 5) + "px")
+          .style("top",   (event.pageY - 28) + "px")
+          .classed("hidden", false);
+      })
+      .on("mouseout", () => {
+        tooltip.classed("hidden", true);
+      });
 
   const peak = data.reduce((a,b) => b.total > a.total ? b : a, data[0]);
   const ann = [{
@@ -107,7 +138,7 @@ function scene1() {
 }
 
 function scene2() {
-  const svg = d3.select("#chart").attr("width", 800).attr("height", 500);
+  const svg = d3.select("#chart").attr("width", chartw).attr("height", charth);
 
   const idx = params.dates.length - 1;
   const data = params.byCountry[idx]
@@ -116,8 +147,8 @@ function scene2() {
     .slice(0,10);
 
   const margin = {top:40, right:20, bottom:40, left:140};
-  const w = +svg.attr("width") - margin.left - margin.right;
-  const h = +svg.attr("height") - margin.top - margin.bottom;
+  const w = chartw - margin.left - margin.right;
+  const h = charth - margin.top - margin.bottom;
 
   const x = d3.scaleLinear().domain([0, d3.max(data, d => d.value)]).nice().range([0, w]);
   const y = d3.scaleBand().domain(data.map(d => d.country)).range([0, h]).padding(0.1);
@@ -157,7 +188,7 @@ function scene2() {
 }
 
 function scene3() {
-  const svg = d3.select("#chart").attr("width", 800).attr("height", 500);
+  const svg = d3.select("#chart").attr("width", chartw).attr("height", charth);
 
   const idx = params.currentDateIdx;
   const date = params.dates[idx];
@@ -166,8 +197,8 @@ function scene3() {
   d3.select("#slider-value").text(date);
 
   const margin = {top:40, right:20, bottom:40, left:140};
-  const w = +svg.attr("width") - margin.left - margin.right;
-  const h = +svg.attr("height") - margin.top - margin.bottom;
+  const w = chartw - margin.left - margin.right;
+  const h = charth - margin.top - margin.bottom;
 
   const x = d3.scaleLinear().domain([0, d3.max(data, d => d.value)]).nice().range([0, w]);
   const y = d3.scaleBand().domain(data.map(d => d.country)).range([0, h]).padding(0.1);
