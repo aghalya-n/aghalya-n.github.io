@@ -76,12 +76,19 @@ svg, #annotation svg {
 
 .chart-box {
   position: relative;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255,255,255,0.15);
   backdrop-filter: blur(10px);
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.25);
   padding: 24px;
   margin-bottom: 24px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--color-text);
+  margin-bottom: 0.5em;
+  text-align: center;
 }
 
 /* free-explore controls */
@@ -120,7 +127,7 @@ svg, #annotation svg {
 
 .axis text {
   fill: var(--color-light-pink);
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 /* slider thumb and track styling */
