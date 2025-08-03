@@ -103,8 +103,8 @@ function scene1() {
             `<strong>${d3.timeFormat("%b %d, %Y")(new Date(d.date))}</strong><br>` +
             `${d3.format(",")(d.total)} cases`
           )
-          .style("left",  (event.pageX + 5) + "px")
-          .style("top",   (event.pageY - 28) + "px")
+          .style("left", (event.pageX + 5) + "px")
+          .style("top", (event.pageY - 28) + "px")
           .classed("hidden", false);
       })
       .on("mouseout", () => {
@@ -170,7 +170,7 @@ function scene2() {
       tooltip
         .html(`<strong>${d.country}</strong><br/>${d3.format(",")(d.value)} cases`)
         .style("left", `${event.pageX + 5}px`)
-        .style("top",  `${event.pageY - 28}px`)
+        .style("top", `${event.pageY - 28}px`)
         .classed("hidden", false);
     })
     .on("mouseout", () => {
