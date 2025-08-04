@@ -78,8 +78,8 @@ function scene1() {
 
   const g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
 
-  g.append("g").attr("transform", `translate(0,${h})`).call(d3.axisBottom(x).ticks(5));
-  g.append("g").call(d3.axisLeft(y).ticks(6));
+  g.append("g").attr("class","axis").attr("transform", `translate(0,${h})`).call(d3.axisBottom(x).ticks(5));
+  g.append("g").attr("class","axis").call(d3.axisLeft(y).ticks(6));
 
   const line = d3.line().x(d => x(new Date(d.date))).y(d => y(d.total));
 
@@ -155,8 +155,8 @@ function scene2() {
 
   const g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
 
-  g.append("g").call(d3.axisLeft(y));
-  g.append("g").attr("transform", `translate(0,${h})`).call(d3.axisBottom(x).ticks(5).tickFormat(d3.format(".2s")));
+  g.append("g").attr("class","axis").call(d3.axisLeft(y));
+  g.append("g").attr("class","axis").attr("transform", `translate(0,${h})`).call(d3.axisBottom(x).ticks(5).tickFormat(d3.format(".2s")));
 
   const tooltip = d3.select("body").append("div").attr("class","tooltip hidden");
 
@@ -218,8 +218,8 @@ function scene3() {
 
   const g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
 
-  g.append("g").call(d3.axisLeft(y));
-  g.append("g").attr("transform", `translate(0,${h})`).call(d3.axisBottom(x).ticks(5).tickFormat(d3.format(".2s")));
+  g.append("g").attr("class","axis").call(d3.axisLeft(y));
+  g.append("g").attr("class","axis").attr("transform", `translate(0,${h})`).call(d3.axisBottom(x).ticks(5).tickFormat(d3.format(".2s")));
 
   let tooltip = d3.select("body").selectAll(".tooltip").data([null]);
   tooltip = tooltip.enter().append("div").attr("class", "tooltip hidden").merge(tooltip);
