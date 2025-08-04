@@ -86,7 +86,7 @@ function scene1() {
   g.append("path")
     .datum(data)
     .attr("fill","none")
-    .attr("stroke","#e6550d")
+    .attr("stroke","#3c253c")
     .attr("stroke-width",2)
     .attr("d", line);
 
@@ -165,7 +165,7 @@ function scene2() {
     .attr("height", y.bandwidth())
     .attr("x", 0)
     .attr("width", d => x(d.value))
-    .attr("fill", "#a4a4a4")
+    .attr("fill", "#3c253c")
     .on("mouseover", (event, d) => {
       tooltip
         .html(`<strong>${d.country}</strong><br/>${d3.format(",")(d.value)} cases`)
@@ -231,7 +231,7 @@ function scene3() {
       .attr("y", d => y(d.country))
       .attr("height", y.bandwidth())
       .attr("x", 0)
-      .attr("fill", "#a4a4a4")
+      .attr("fill", "#3c253c")
       .attr("width", d => x(d.value))
       .on("mouseover", (event, d) => {
         tooltip
