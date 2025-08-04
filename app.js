@@ -67,7 +67,7 @@ function updateScene() {
 }
 
 function scene1() {
-  const svg = d3.select("#chart").attr("width", chartw).attr("height", charth);
+  const svg = d3.select("#chart").attr("viewBox", `0 0 ${chartw} ${charth}`).attr("preserveAspectRatio", "xMinYMin meet");
   const data = params.globalTotals;
   const margin = {top:150, right:20, bottom:40, left:140};
   const w = chartw - margin.left - margin.right;
@@ -138,7 +138,7 @@ function scene1() {
 }
 
 function scene2() {
-  const svg = d3.select("#chart").attr("width", chartw).attr("height", charth);
+  const svg = d3.select("#chart").attr("viewBox", `0 0 ${chartw} ${charth}`).attr("preserveAspectRatio", "xMinYMin meet");
 
   const idx = params.dates.length - 1;
   const data = params.byCountry[idx]
@@ -201,7 +201,7 @@ function scene2() {
 }
 
 function scene3() {
-  const svg = d3.select("#chart").attr("width", chartw).attr("height", charth);
+  const svg = d3.select("#chart").attr("viewBox", `0 0 ${chartw} ${charth}`).attr("preserveAspectRatio", "xMinYMin meet");
 
   const idx = params.currentDateIdx;
   const date = params.dates[idx];
