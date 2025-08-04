@@ -69,7 +69,7 @@ function updateScene() {
 function scene1() {
   const svg = d3.select("#chart").attr("width", chartw).attr("height", charth);
   const data = params.globalTotals;
-  const margin = {top:250, right:20, bottom:40, left:140};
+  const margin = {top:150, right:20, bottom:40, left:140};
   const w = chartw - margin.left - margin.right;
   const h = charth - margin.top - margin.bottom;
 
@@ -146,7 +146,7 @@ function scene2() {
     .sort((a,b) => b.value - a.value)
     .slice(0,10);
 
-  const margin = {top:250, right:20, bottom:40, left:140};
+  const margin = {top:150, right:20, bottom:40, left:140};
   const w = chartw - margin.left - margin.right;
   const h = charth - margin.top - margin.bottom;
 
