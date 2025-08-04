@@ -7,9 +7,9 @@ const params = {
 };
 
 const subtitles = [
-  "This line graph shows the cumulative global confirmed cases over time. Hover any point for exact date & count.",
-  "This horizontal bar graph shows the top 10 countries by total confirmed cases (latest). Hover bars for exact counts.",
-  "For this graph, slide to choose a date, then hover bars for details!"
+  "This line graph shows the cumulative global confirmed cases over time. Hover over any point on the line for the exact date & confirmed cases count.",
+  "This horizontal bar graph shows the top 10 countries by total latest confirmed cases. Hover over the bars for exact counts.",
+  "For this graph, slide to choose a date, then hover over the bars for details!"
 ];
 
 const scenes = [scene1, scene2, scene3];
@@ -69,7 +69,7 @@ function updateScene() {
 function scene1() {
   const svg = d3.select("#chart").attr("width", chartw).attr("height", charth);
   const data = params.globalTotals;
-  const margin = {top:80, right:20, bottom:40, left:140};
+  const margin = {top:250, right:20, bottom:40, left:140};
   const w = chartw - margin.left - margin.right;
   const h = charth - margin.top - margin.bottom;
 
@@ -146,7 +146,7 @@ function scene2() {
     .sort((a,b) => b.value - a.value)
     .slice(0,10);
 
-  const margin = {top:40, right:20, bottom:40, left:140};
+  const margin = {top:250, right:20, bottom:40, left:140};
   const w = chartw - margin.left - margin.right;
   const h = charth - margin.top - margin.bottom;
 
