@@ -90,8 +90,10 @@ button:hover {
 
 /* viz container */
 #viz {
-  position: relative;
-  width: 90%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 1em;
 }
 
 /* svg chart */
@@ -129,13 +131,13 @@ svg, #annotation svg {
 }
 
 .chart-box {
+  display: inline-block;
   position: relative;
   background: rgba(255,255,255,0.15);
   backdrop-filter: blur(10px);
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.25);
   padding: 24px 40px 24px 24px;
-  margin-bottom: 24px;
 }
 
 .subtitle {
