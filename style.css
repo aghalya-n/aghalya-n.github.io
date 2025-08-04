@@ -137,7 +137,7 @@ svg, #annotation svg {
 
 .axis text {
   fill: var(--color-light-pink);
-  font-size: 0.9rem;
+  font-size: 0.4rem;
 }
 
 /* slider thumb and track styling */
