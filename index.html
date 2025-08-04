@@ -32,16 +32,15 @@
     <div class="chart-box">
       <svg id="chart"></svg>
       <div id="annotation"></div>
+      <div id="explore-controls" class="hidden">
+        <label for="date-slider">Date:</label>
+        <input type="range" id="date-slider" min="0" max="0" step="1" />
+        <span id="slider-value"></span>
+      </div>
     </div>
   </div>
 
   <div id="subtitle" class="subtitle"></div>
-
-  <div id="explore-controls" class="hidden">
-    <label for="date-slider">Date:</label>
-    <input type="range" id="date-slider" min="0" max="0" step="1" />
-    <span id="slider-value"></span>
-  </div>
 
   <script src="d3.v7.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js"></script>
