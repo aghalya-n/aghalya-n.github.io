@@ -8,10 +8,24 @@
 </head>
 
 <body>
-  <div id="controls">
-    <button id="prev">← Previous</button>
-    <span id="scene-title"></span>
-    <button id="next">Next →</button>
+  <header class="page-header">
+    <h1>COVID-19 Global Narrative</h1>
+    <p>
+      An interactive, three-scene story of global COVID-19 cases over time, built in D3.js.  
+      Data from Johns Hopkins University’s  
+      <a href="https://github.com/CSSEGISandData/COVID-19" target="_blank" rel="noopener">
+        COVID-19 dataset
+      </a>.
+    </p>
+  </header>
+  
+  <div class="scene-header">
+    <h2 id="scene-title"></h2>
+    <div id="controls">
+      <button id="prev">← Previous</button>
+      <button id="next">Next →</button>
+    </div>
+    <div id="subtitle" class="subtitle"></div>
   </div>
   
   <div id="viz">
@@ -20,8 +34,6 @@
       <div id="annotation"></div>
     </div>
   </div>
-
-  <div id="subtitle" class="subtitle"></div>
 
   <div id="explore-controls" class="hidden">
     <label for="date-slider">Date:</label>
