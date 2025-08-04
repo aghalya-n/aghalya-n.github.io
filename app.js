@@ -96,7 +96,7 @@ function scene1() {
       .attr("cx", d => x(new Date(d.date)))
       .attr("cy", d => y(d.total))
       .attr("r", 4)
-      .attr("fill", "#e6550d")
+      .attr("fill", "#7c417c")
       .on("mouseover", (event,d) => {
         tooltip
           .html(
@@ -165,7 +165,7 @@ function scene2() {
     .attr("height", y.bandwidth())
     .attr("x", 0)
     .attr("width", d => x(d.value))
-    .attr("fill", "#3182bd")
+    .attr("fill", "#7c417c")
     .on("mouseover", (event, d) => {
       tooltip
         .html(`<strong>${d.country}</strong><br/>${d3.format(",")(d.value)} cases`)
@@ -231,6 +231,7 @@ function scene3() {
       .attr("y", d => y(d.country))
       .attr("height", y.bandwidth())
       .attr("x", 0)
+      .attr("fill", "#7c417c")
       .attr("width", d => x(d.value))
       .on("mouseover", (event, d) => {
         tooltip
