@@ -177,6 +177,19 @@ function scene2() {
       tooltip.classed("hidden", true);
     });
 
+  const top = data[0];
+  const ann = [{
+    note: {
+      title: top.country,
+      label: `${d3.format(",")(top.value)} cases`,
+      wrap: 80
+    },
+    x: x(top.value),
+    y: y(top.country) + y.bandwidth()/2,
+    dx: -100,
+    dy: -20
+  }];
+
   const makeAnn = d3.annotation().type(d3.annotationCallout).annotations(ann);
 
   d3.select("#annotation").append("svg")
