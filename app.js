@@ -9,7 +9,7 @@ const params = {
 const subtitles = [
   "This line graph shows the cumulative global confirmed cases over time. Hover any point for exact date & count.",
   "This horizontal bar graph shows the top 10 countries by total confirmed cases (latest). Hover bars for exact counts.",
-  "For this graph, slide to choose a date, then hover bars for details."
+  "For this graph, slide to choose a date, then hover bars for details!"
 ];
 
 const scenes = [scene1, scene2, scene3];
