@@ -130,8 +130,8 @@ function scene1() {
 
   d3.select("#annotation")
     .append("svg")
-      .attr("width", w + margin.left + margin.right)
-      .attr("height", h + margin.top + margin.bottom)
+      .attr("viewBox", `0 0 ${chartw} ${charth}`)
+      .attr("preserveAspectRatio", "xMinYMin meet")
     .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`)
       .call(makeAnn);
@@ -192,9 +192,10 @@ function scene2() {
 
   const makeAnn = d3.annotation().type(d3.annotationCallout).annotations(ann);
 
-  d3.select("#annotation").append("svg")
-      .attr("width", w + margin.left + margin.right)
-      .attr("height", h + margin.top + margin.bottom)
+  d3.select("#annotation")
+    .append("svg")
+      .attr("viewBox", `0 0 ${chartw} ${charth}`)
+      .attr("preserveAspectRatio", "xMinYMin meet")
     .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`)
       .call(makeAnn);
