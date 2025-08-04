@@ -15,7 +15,7 @@ const subtitles = [
 const scenes = [scene1, scene2, scene3];
 
 const chartw = 1000;
-const charth = 800;
+const charth = 600;
 
 d3.csv("time_series_covid19_confirmed_global.csv").then(raw => {
   params.dates = raw.columns.slice(4);
