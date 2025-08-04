@@ -146,10 +146,12 @@ svg, #annotation svg {
 }
 
 .chart-box svg {
-  position: absolute;
-  top: 0; left: 0;
+  position: relative;
+  top: 0; 
+  left: 0;
   width: 100%;
   height: 100%;
+  z-index: 1;
 }
 
 .subtitle {
@@ -166,6 +168,11 @@ svg, #annotation svg {
   align-items: center;
   gap: 0.5em;
   margin-top: 1em;
+  position: absolute;
+  z-index: 2;
+  background: rgba(0,0,0,0.1);
+  padding: 8px;
+  border-radius: 4px;
 }
 
 #date-slider {
