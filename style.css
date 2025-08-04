@@ -120,11 +120,12 @@ svg, #annotation svg {
 
 .annotation-note-title {
   fill: var(--color-light-pink) !important;
-  font-size: 0.7rem;
+  font-size: 1rem;
 }
 
 .annotation-note-label {
   fill: var(--color-text) !important;
+  font-size: .8rem;
 }
 
 .chart-box {
@@ -179,7 +180,7 @@ svg, #annotation svg {
 
 .axis text {
   fill: var(--color-light-pink);
-  font-size: 0.65rem;
+  font-size: 0.8rem;
 }
 
 /* slider thumb and track styling */
