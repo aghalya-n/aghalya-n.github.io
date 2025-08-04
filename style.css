@@ -154,13 +154,6 @@ svg, #annotation svg {
   z-index: 1;
 }
 
-.chart-box svg#chart circle {
-  pointer-events: all;
-  stroke: var(--color-light-pink);
-  stroke-width: 1px;
-  z-index: 2;
-}
-
 .subtitle {
   font-size: 1rem;
   color: var(--color-text);
