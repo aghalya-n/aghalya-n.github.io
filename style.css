@@ -120,6 +120,7 @@ svg, #annotation svg {
 
 .annotation-note-title {
   fill: var(--color-light-pink) !important;
+  font-size: 0.7rem;
 }
 
 .annotation-note-label {
