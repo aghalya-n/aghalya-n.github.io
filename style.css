@@ -73,6 +73,18 @@ svg, #annotation svg {
   overflow: visible;
 }
 
+.annotation-connector, .annotation-note-line {
+  stroke: var(--color-light-pink) !important;
+}
+
+.annotation-note-title {
+  fill: var(--color-light-pink) !important;
+}
+
+.annotation-note-label {
+  fill: var(--color-text) !important;
+}
+
 .chart-box {
   position: relative;
   background: rgba(255,255,255,0.15);
@@ -119,8 +131,7 @@ svg, #annotation svg {
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
-.axis path,
-.axis line {
+.axis path, .axis line {
   stroke: var(--color-light-pink);
 }
 
@@ -138,6 +149,7 @@ input[type="range"] {
   border-radius: 4px;
   outline: none;
 }
+
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 16px;
@@ -147,6 +159,7 @@ input[type="range"]::-webkit-slider-thumb {
   cursor: pointer;
   border: 2px solid var(--color-light-pink);
 }
+
 input[type="range"]::-moz-range-thumb {
   width: 16px;
   height: 16px;
